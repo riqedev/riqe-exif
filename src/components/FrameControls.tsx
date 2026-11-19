@@ -31,7 +31,7 @@ export function FrameControls(p: FrameControlsProps) {
               onClick={() => p.onStyle(s)}
               className={cn(
                 "pressable h-8 rounded-md px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring/60",
-                p.style === s ? "bg-foreground text-background" : "text-muted-foreground hover:text-foreground",
+                p.style === s ? "bg-muted font-medium text-foreground" : "text-muted-foreground hover:text-foreground",
               )}
             >
               {t[s]}
@@ -63,7 +63,7 @@ export function FrameControls(p: FrameControlsProps) {
           type="button"
           onClick={p.onDownload}
           disabled={p.exporting}
-          className="pressable flex h-10 items-center justify-center gap-2 rounded-lg bg-foreground px-5 text-sm font-medium text-background outline-none hover:opacity-90 focus-visible:ring-2 focus-visible:ring-ring/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:opacity-60"
+          className="pressable flex h-10 items-center justify-center gap-2 rounded-lg bg-primary px-5 text-sm font-medium text-primary-foreground outline-none hover:opacity-90 focus-visible:ring-2 focus-visible:ring-ring/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:opacity-60"
         >
           {p.exporting ? (
             <LoaderCircle size={16} aria-hidden="true" className="animate-spin" />

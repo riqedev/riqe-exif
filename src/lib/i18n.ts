@@ -14,6 +14,7 @@ export const detectLocale = (): Locale => {
 };
 
 const es = {
+  tagline: "Datos de toma y marco sin metadatos",
   dropTitle: "Suelta una foto",
   dropBody: "Lee la cámara, el lente y la exposición, te avisa si trae tu ubicación y exporta una versión con marco y sin metadatos.",
   choose: "Elegir foto",
@@ -62,6 +63,7 @@ const es = {
 };
 
 const en: typeof es = {
+  tagline: "Shot data and a metadata-free frame",
   dropTitle: "Drop a photo",
   dropBody: "Reads the camera, lens and exposure, warns you if it carries your location, and exports a framed copy without metadata.",
   choose: "Choose photo",

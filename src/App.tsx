@@ -116,15 +116,9 @@ export default function App() {
         }}
       >
         <header className="flex items-center justify-between gap-4 px-5 py-4 sm:px-8 sm:py-5">
-          <div className="osd flex items-center gap-4 text-[11px]">
-            <span className="tracking-[0.2em] text-hud-strong">RIQE EXIF</span>
-            <span className="flex items-center gap-1.5 text-hud">
-              <span
-                aria-hidden="true"
-                className={cn("size-1.5 rounded-full", photo ? "bg-af" : "bg-hud-faint")}
-              />
-              {photo ? "PLAYBACK" : "STANDBY"}
-            </span>
+          <div className="flex flex-col">
+            <span className="text-base font-semibold tracking-tight">RIQE Exif Frame</span>
+            <span className="text-xs text-muted-foreground">{t.tagline}</span>
           </div>
           <div className="flex items-center gap-1">
             {photo && (
@@ -154,7 +148,7 @@ export default function App() {
               type="button"
               onClick={() => setLocale(locale === "es" ? "en" : "es")}
               aria-label={t.switchTo}
-              className="osd pressable h-8 rounded-md px-2.5 text-[11px] text-muted-foreground outline-none hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/60"
+              className="pressable h-8 rounded-md px-2.5 text-xs font-medium text-muted-foreground outline-none hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring/60"
             >
               {locale.toUpperCase()}
             </button>
@@ -184,7 +178,7 @@ export default function App() {
                 onDownload={() => void download()}
               />
               {error && (
-                <p role="alert" className="text-sm text-rec">
+                <p role="alert" className="text-sm text-danger">
                   {error}
                 </p>
               )}

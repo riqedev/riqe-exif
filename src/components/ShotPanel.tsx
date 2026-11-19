@@ -20,7 +20,7 @@ const Row = ({ label, children }: { label: string; children: ReactNode }) => (
 
 const Panel = ({ title, children }: { title: string; children: ReactNode }) => (
   <section className="surface rounded-xl p-5">
-    <h2 className="osd mb-3 text-[10px] text-hud">{title}</h2>
+    <h2 className="mb-2 text-sm font-semibold">{title}</h2>
     {children}
   </section>
 );
@@ -39,9 +39,9 @@ export function ShotPanel({ data, width, height }: { data: ShotData; width: numb
         {data.lens && <Row label={t.lens}>{data.lens}</Row>}
         {data.focal && (
           <Row label={t.focal}>
-            <span className="font-mono">{formatFocal(data.focal)}</span>
+            <span className="tabular-nums">{formatFocal(data.focal)}</span>
             {data.focal35 && data.focal35 !== Math.round(data.focal) && (
-              <span className="font-mono text-muted-foreground">
+              <span className="text-muted-foreground tabular-nums">
                 {" "}
                 ({data.focal35}mm {t.equivalent})
               </span>
@@ -50,22 +50,22 @@ export function ShotPanel({ data, width, height }: { data: ShotData; width: numb
         )}
         {data.aperture && (
           <Row label={t.aperture}>
-            <span className="font-mono">{formatAperture(data.aperture)}</span>
+            <span className="tabular-nums">{formatAperture(data.aperture)}</span>
           </Row>
         )}
         {data.shutter && (
           <Row label={t.shutter}>
-            <span className="font-mono">{formatShutter(data.shutter)}</span>
+            <span className="tabular-nums">{formatShutter(data.shutter)}</span>
           </Row>
         )}
         {data.iso && (
           <Row label={t.iso}>
-            <span className="font-mono">{data.iso}</span>
+            <span className="tabular-nums">{data.iso}</span>
           </Row>
         )}
         {data.ev !== undefined && (
           <Row label={t.ev}>
-            <span className="font-mono">{formatEv(data.ev)} EV</span>
+            <span className="tabular-nums">{formatEv(data.ev)} EV</span>
           </Row>
         )}
         {data.date && (
@@ -75,10 +75,10 @@ export function ShotPanel({ data, width, height }: { data: ShotData; width: numb
         )}
         {data.software && <Row label={t.software}>{data.software}</Row>}
         <Row label={t.size}>
-          <span className="font-mono">
+          <span className="tabular-nums">
             {width} × {height}
           </span>{" "}
-          <span className="font-mono text-muted-foreground">({mp} MP)</span>
+          <span className="text-muted-foreground tabular-nums">({mp} MP)</span>
         </Row>
       </dl>
     </Panel>
@@ -94,7 +94,7 @@ export function PrivacyPanel({ data }: { data: ShotData }) {
     return (
       <Panel title={t.privacy}>
         <p className="flex items-start gap-2.5 text-sm leading-relaxed">
-          <ShieldCheck size={16} aria-hidden="true" className="mt-0.5 shrink-0 text-af" />
+          <ShieldCheck size={16} aria-hidden="true" className="mt-0.5 shrink-0 text-success" />
           {t.clean}
         </p>
       </Panel>
@@ -128,7 +128,7 @@ export function PrivacyPanel({ data }: { data: ShotData }) {
   return (
     <Panel title={t.privacy}>
       <p className="mb-2 flex items-start gap-2.5 text-sm font-medium">
-        <ShieldAlert size={16} aria-hidden="true" className="mt-0.5 shrink-0 text-warn" />
+        <ShieldAlert size={16} aria-hidden="true" className="mt-0.5 shrink-0 text-warning" />
         {t.found}
       </p>
       <dl>
