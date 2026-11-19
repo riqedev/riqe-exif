@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16.png" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)" />
+    <meta
+      name="description"
+      content="Lee los datos de toma de una foto (cámara, lente, exposición), avisa si trae ubicación o número de serie y exporta una versión con marco y sin metadatos. Todo en tu navegador."
+    />
+    <title>RIQE Exif Frame</title>
+    <script>
+      (function () {
+        var lang = "es";
+        try {
+          var stored = localStorage.getItem("riqe-exif-locale");
+          lang = stored === "es" || stored === "en" ? stored : navigator.language.toLowerCase().indexOf("es") === 0 ? "es" : "en";
+        } catch (e) {}
+        document.documentElement.lang = lang;
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

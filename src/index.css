@@ -1,0 +1,107 @@
+@import "tailwindcss";
+@import "@fontsource-variable/inter/opsz.css";
+@import "@fontsource-variable/archivo/wdth.css";
+@import "@fontsource-variable/jetbrains-mono/wght.css";
+
+/* Tokens de la marca riqedev (ver riqedev.github.io/DESIGN.md). El tema sigue al sistema. */
+@custom-variant dark (@media (prefers-color-scheme: dark));
+
+@theme inline {
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-brand: "Archivo Variable", "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --color-rec: var(--rec);
+  --color-warn: var(--warn);
+  --color-af: var(--af);
+  --color-hud-strong: var(--hud-strong);
+  --color-hud: var(--hud);
+  --color-hud-faint: var(--hud-faint);
+
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+:root {
+  --background: oklch(0.985 0.002 264);
+  --foreground: oklch(0.16 0 0);
+  --card: oklch(1 0 0);
+  --muted: oklch(0.96 0 0);
+  --muted-foreground: oklch(0.48 0 0);
+  --border: oklch(0.9 0 0);
+  --ring: oklch(0.45 0 0);
+  --rec: oklch(0.58 0.22 27);
+  --warn: oklch(0.62 0.15 70);
+  --af: oklch(0.53 0.12 152);
+  --hud-strong: oklch(0.16 0 0 / 78%);
+  --hud: oklch(0.16 0 0 / 60%);
+  --hud-faint: oklch(0.16 0 0 / 45%);
+  --shadow-card: 0 1px 2px oklch(0 0 0 / 4%), 0 14px 32px -18px oklch(0 0 0 / 16%);
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.19 0 0);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.72 0 0);
+    --border: oklch(1 0 0 / 10%);
+    --ring: oklch(0.72 0 0);
+    --rec: oklch(0.65 0.23 27);
+    --warn: oklch(0.84 0.15 85);
+    --af: oklch(0.76 0.13 152);
+    --hud-strong: oklch(0.985 0 0 / 75%);
+    --hud: oklch(0.985 0 0 / 58%);
+    --hud-faint: oklch(0.985 0 0 / 42%);
+    --shadow-card: inset 0 1px 0 0 oklch(1 0 0 / 6%), 0 18px 40px -22px oklch(0 0 0 / 75%);
+    color-scheme: dark;
+  }
+}
+
+/* OSD: la voz del visor. Solo para metadatos y etiquetas cortas. */
+@utility osd {
+  font-family: var(--font-brand);
+  font-stretch: 84%;
+  font-weight: 540;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@utility surface {
+  background-color: var(--card);
+  box-shadow: var(--shadow-card);
+}
+
+@utility pressable {
+  transition-property: transform, color, background-color, border-color, opacity;
+  transition-duration: 160ms;
+  transition-timing-function: var(--ease-out);
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0ms !important;
+    animation-duration: 0ms !important;
+  }
+}
